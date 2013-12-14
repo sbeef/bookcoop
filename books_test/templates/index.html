@@ -1,0 +1,25 @@
+{% extends "_base.html" %}
+
+{% block page_title %}SWAP Virtual Inventory{% endblock %}
+
+{% block content %}
+  <h1>Inventory</h1>
+
+  <p>Here are all the books in our current inventory</p>
+
+  <ul class="books">
+    {% for book in entries %}
+    <li>
+      <b>{{ book.title }}</b> by {{ book.author }}
+    </li>
+    {% endfor %}
+  </ul>
+
+  <hr>
+  <h2> Add another book! </h2>
+  <form action="add" method="POST">
+    <p>Title: <input type="text" name="title"></p>
+    <p>Author: <input type="text" name="author"></p>
+    <p><button>Add</button></p>
+  </form>
+{% endblock %}
